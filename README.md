@@ -101,13 +101,13 @@ Electronic_Pedometer/
 The step detection logic operates at approximately 20 Hz (`delay(50)` loop):
 
 1. **Total Acceleration Magnitude**:
-   $$\text{acc\_total} = \sqrt{a_x^2 + a_y^2 + a_z^2}$$
+   $$\text{acc\total} = \sqrt{ax^2 + ay^2 + az^2}$$
 2. **Noise Rejection**:
-   Measurements outside the reasonable sensor window ($100 < \text{acc\_total} < 50000$) are discarded.
+   Measurements outside the reasonable sensor window ($100 < \text{acc\total} < 50000$) are discarded.
 3. **IIR Filter**:
-   $$\text{acc\_filtered} = 0.8 \times \text{acc\_filtered} + 0.2 \times \text{acc\_total}$$
+   $$\text{acc\filtered} = 0.8 \times \text{acc\filtered} + 0.2 \times \text{acc\total}$$
 4. **Z-Axis Difference**:
-   $$\Delta a_z = |a_z - \text{prev\_}a_z|$$
+   $$\Delta az = |az - \text{prev\}az|$$
 5. **Step Identification Conditions**:
    A step is registered when all of the following conditions are met:
    - Filtered acceleration exceeds threshold: `acc_filtered > 17200.0`
