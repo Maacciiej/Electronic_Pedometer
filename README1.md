@@ -95,18 +95,18 @@ $$\text{Loop Delay} = 50\text{ ms} \implies f_{\text{nominal}} = \frac{1000\text
 ### Detection Pipeline
 
 1. **Total Acceleration Magnitude**:
-   $$\text{acc\_total} = \sqrt{a_x^2 + a_y^2 + a_z^2}$$
+   $$\text{acc\total} = \sqrt{ax^2 + ay^2 + az^2}$$
 
 2. **Noise Rejection**:
-   Measurements outside the valid physical range ($100 < \text{acc\_total} < 50000$) are discarded.
+   Measurements outside the valid physical range ($100 < \text{acc\total} < 50000$) are discarded.
 
 3. **IIR Low-Pass Filter**:
    Smooths raw sensor noise using an exponential moving average:
-   $$\text{acc\_filtered} = 0.8 \times \text{acc\_filtered} + 0.2 \times \text{acc\_total}$$
+   $$\text{acc\filtered} = 0.8 \times \text{acc\filtered} + 0.2 \times \text{acc\total}$$
 
 4. **Z-Axis Difference (Jerk)**:
    Measures vertical shock/acceleration shift:
-   $$\Delta a_z = |a_z - \text{prev\_}a_z|$$
+   $$\Delta az = |az - \text{prev\}az|$$
 
 5. **Step Validation Conditions**:
    A step is registered when all of the following conditions are met:
